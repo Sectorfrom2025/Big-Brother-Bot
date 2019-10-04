@@ -113,31 +113,5 @@ if __name__ == '__main__':
         Working_with_sheet(tmp).opening_and_finding_min()
 
 
-# In[52]:
-
-
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-from pprint import pprint
-
-scope = ['https://www.googleapis.com/auth/spreadsheets',         'https://www.googleapis.com/auth/drive.file',         "https://www.googleapis.com/auth/drive"]
-
-creds = ServiceAccountCredentials.from_json_keyfile_name( 'testing-747a17f8cab3.json', scope)
-client = gspread.authorize(creds)
-sheet = client.open('1984').sheet1
-data = sheet.get_all_records
-row = list(set(sheet.row_values(2)))[0:5]
-col = list(sheet.col_values(1))[2:]
-cell = sheet.cell(2,3).value
-# sheet.update_cell
-print(cell)
-pprint(row)
-pprint(col)
-# pprint(data)
-
-
-# In[ ]:
-
-
 
 
